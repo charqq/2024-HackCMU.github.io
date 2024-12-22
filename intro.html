@@ -1,193 +1,194 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Meta and Title -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Analyzer</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    <!-- Styles -->
-    <style>
-        /* Navigation Bar Styles */
-        .topnav {
-            background-color: #333;
-            overflow: hidden;
-        }
-        .topnav a {
-            font-family: 'Orbitron', courier, sans-serif;   
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-        }
-        .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        .topnav a.active {
-            background-color: darkorchid;
-            color: white;
-        }
-        /* Background and Text */
-        body {
-            background-image: url(images/background_intro.jpg);
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: cover;
-            margin: 0;
-            width: 100vw;
-            height: 100vh;
-        }
-        .bigtext {
-            margin-top: 10px;
-            text-align: center;
-            padding-top: 20px;
-            font-size: xx-large;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: white;
-        }
-        /* Transparent Textbox */
-        .textbox {
-            position: relative;
-            background-color: rgba(0, 0, 0, 0.658);
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            min-height: 400px;
-            box-sizing: border-box;
-        }
-        /* Textarea and Button Styling */
-        .textarea-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        textarea {
-            width: 90%;
-            height: 200px;
-            padding: 10px;
-            border-radius: 5px;
-            resize: vertical;
-            font-size: 16px;
-            font-family: Arial, sans-serif;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        /* Result Display Styling */
-        .result {
-            margin-top: 20px;
-            color: white;
-            font-size: 18px;
-            text-align: center;
-            width: 90%;
-        }
-        .result h2 {
-            margin-bottom: 10px;
-        }
-        .result p {
-            margin-bottom: 5px;
-        }
-        .result ul {
-            list-style-type: disc;
-            text-align: left;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .result li {
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <div class="topnav">
-        <a href="main.html">Home</a>
-        <a class="active" href="#intro">Try Yourself!</a>
-        <a  href= "idea.html">Idea</a>
-        <a href="demo.html">Demo</a>
-    </div>
+<html>
+    <head>
+        <title>Resume Analyzer</title>
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
-    <!-- Main Content -->
-    <div class="textbox">
-        <div class="bigtext">Resume Analyzer</div>
-        <div class="textarea-container">
-            <textarea id="inputText" placeholder="Paste your resume text here..."></textarea>
-            <div class="buttons">
-                <button onclick="handleSubmit()">Analyze Resume</button>
-                <button onclick="clearText()">Clear Text</button>
-            </div>
-            <div id="result" class="result"></div>
+        <style>
+
+            /* Navigation Bar */
+            .topnav {
+                background-color: #333;
+                overflow: hidden;
+            }
+            /*imported font*/
+            .topnav a {
+                font-family: 'Orbitron', courier, sans-serif;   
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+            .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+            }
+            .topnav a.active {
+                background-color: darkorchid;
+                color: white;
+            }
+
+            /* Background and Text */
+            body {
+                background-image: url(images/background_intro.jpg);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                margin: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+            .bigtext {
+                margin-top: 10px;
+                text-align: center;
+                padding-top: 20px;
+                font-size: xx-large;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                color: white;
+            }
+            /* Transparent Textbox */
+            .textbox {
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.658);
+                width: 80%;
+                margin: 20px auto;
+                padding: 20px;
+                border-radius: 10px;
+                min-height: 400px;
+                box-sizing: border-box;
+            }
+            /* Textarea and Button Settings */
+            .textarea-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
+            textarea {
+                width: 90%;
+                height: 200px;
+                padding: 10px;
+                border-radius: 5px;
+                resize: vertical;
+                font-size: 16px;
+                font-family: Arial, sans-serif;
+            }
+            .buttons {
+                margin-top: 20px;
+            }
+            .buttons button {
+                padding: 10px 20px;
+                margin: 0 10px;
+                font-size: 16px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            /* Result Display Settings */
+            .result {
+                margin-top: 20px;
+                color: white;
+                font-size: 18px;
+                text-align: center;
+                width: 90%;
+            }
+            .result h2 {
+                margin-bottom: 10px;
+            }
+            .result p {
+                margin-bottom: 5px;
+            }
+            .result ul {
+                list-style-type: disc;
+                text-align: left;
+                display: inline-block;
+                margin-top: 10px;
+            }
+            .result li {
+                margin-bottom: 5px;
+            }
+            
+        </style>
+
+    </head>
+
+    <body>
+        <!--  Nav bar-->
+        <div class="topnav">
+            <a href="main.html">Home</a>
+            <a class="active" href="#intro">Try Yourself!</a>
+            <a  href= "idea.html">Idea</a>
+            <a href="demo.html">Demo</a>
         </div>
-    </div>
 
-    <!-- JavaScript Code -->
-    <script>
-        function handleSubmit() {
-            const inputText = document.getElementById('inputText').value;
+        <!--  Contents-->
+        <div class="textbox">
+            <div class="bigtext">Resume Analyzer</div>
+            <div class="textarea-container">
+                <textarea id="inputText" placeholder="Paste your resume text here..."></textarea>
+                <div class="buttons">
+                    <button onclick="handleSubmit()">Analyze Resume</button>
+                    <button onclick="clearText()">Clear Text</button>
+                </div>
+                <div id="result" class="result"></div>
+            </div>
+        </div>
 
-            if (!inputText) {
-                alert('Please enter your resume text.');
-                return;
+        <!-- JavaScript Code -->
+        <script>
+            function handleSubmit() {
+                const inputText = document.getElementById('inputText').value;
+
+                if (!inputText) {
+                    alert('Please enter your resume text.');
+                    return;
+                }
+
+                // Send the data to the backend
+                sendDataToBackend(inputText);
             }
 
-            // Send the data to the backend
-            sendDataToBackend(inputText);
-        }
-
-        // Function to send data to the backend
-        function sendDataToBackend(data) {
-            fetch('http://localhost:5000/api/analyze', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ text: data }),
-            })
-            .then((response) => response.json())
-            .then((data) => {
-                displayResult(data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('An error occurred while processing your resume.');
-            });
-        }
-
-        // Function to display the result
-        function displayResult(data) {
-            const resultDiv = document.getElementById('result');
-            if (data.error) {
-                resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
-                return;
+            // Function to send data to the backend
+            function sendDataToBackend(data) {
+                fetch('http://localhost:5000/api/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: data }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    displayResult(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('An error occurred while processing your resume.');
+                });
             }
-            resultDiv.innerHTML = `
-                <h2>Analysis Results</h2>
-                <p><strong>Detected Job Field:</strong> ${data.job_field}</p>
-                <p><strong>Suggestions:</strong></p>
-                <ul>
-                    ${data.suggestions.map(suggestion => `<li>${suggestion}</li>`).join('')}
-                </ul>
-            `;
-        }
 
-        // Function to clear the textarea and result
-        function clearText() {
-            document.getElementById('inputText').value = '';
-            document.getElementById('result').innerHTML = '';
-        }
-    </script>
-</body>
+            // Function to display the result
+            function displayResult(data) {
+                const resultDiv = document.getElementById('result');
+                if (data.error) {
+                    resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+                    return;
+                }
+                resultDiv.innerHTML = `
+                    <h2>Analysis Results</h2>
+                    <p><strong>Detected Job Field:</strong> ${data.job_field}</p>
+                    <p><strong>Suggestions:</strong></p>
+                    <ul>
+                        ${data.suggestions.map(suggestion => `<li>${suggestion}</li>`).join('')}
+                    </ul>
+                `;
+            }
+
+            // Function to clear the textarea and result
+            function clearText() {
+                document.getElementById('inputText').value = '';
+                document.getElementById('result').innerHTML = '';
+            }
+        </script>
+    </body>
 </html>
